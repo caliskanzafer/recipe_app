@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:recipe_app/constants.dart';
+import 'package:recipe_app/view/home/home_view.dart';
 
 void main() => runApp(MyApp());
 
@@ -8,11 +10,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Recipe App',
       home: Scaffold(
-        body: Center(
-          child: Container(
-            child: Text('Hello World'),
-          ),
-        ),
+        backgroundColor: bgColor,
+        body: HomeView(),
       ),
     );
   }
