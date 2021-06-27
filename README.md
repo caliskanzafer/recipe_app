@@ -1,16 +1,13 @@
 # recipe_app
 
-A new Flutter project.
+Aşağıdaki adreste bulunan tasarımı yapmaya çalışıyorum. 
 
-## Getting Started
+https://dribbble.com/shots/15921850-Recipe-App
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Ekran goruntuleri
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Anasayfa
+
+![Anasayfa](https://github.com/caliskanzafer/recipe_app/blob/0b0058e886c2cb783b5b43dcabebaf730196c9ff/readme_images/img1.png)
