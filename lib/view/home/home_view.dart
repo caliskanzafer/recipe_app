@@ -11,7 +11,6 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size _size = MediaQuery.of(context).size;
     return SafeArea(
       child: CustomScrollView(
         slivers: [
@@ -37,7 +36,7 @@ class HomeView extends StatelessWidget {
                   _sizedBox,
                   Flexible(
                     flex: 8,
-                    child: Product(size: _size),
+                    child: Product(),
                   ),
                 ],
               ),

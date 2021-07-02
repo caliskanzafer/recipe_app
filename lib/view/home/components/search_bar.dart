@@ -12,49 +12,57 @@ class SearchBar extends StatelessWidget {
       children: [
         Expanded(
           flex: 5,
-          child: TextField(
-            decoration: InputDecoration(
-              prefixIcon: Icon(
-                Icons.search,
-                color: Colors.grey,
-              ),
-              fillColor: Colors.white,
-              filled: true,
-              border: OutlineInputBorder(
-                borderSide: BorderSide.none,
-                borderRadius: BorderRadius.circular(16),
-              ),
-              hintText: 'Search Destination',
-              hintStyle: TextStyle(
-                color: Colors.grey,
-              ),
-            ),
-          ),
+          child: _searchBar(),
         ),
         SizedBox(
           width: defaultPadding,
         ),
         Expanded(
           flex: 1,
-          child: InkWell(
-            onTap: () {},
-            child: Container(
-                decoration: BoxDecoration(
-                  color: primaryColor.withOpacity(0.3),
-                  border: Border.all(
-                    color: Colors.transparent,
-                  ),
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: Center(
-                  child: Icon(
-                    Icons.add,
-                    color: primaryColor.withOpacity(0.6),
-                  ),
-                )),
-          ),
+          child: _searchButton(),
         ),
       ],
+    );
+  }
+
+  InkWell _searchButton() {
+    return InkWell(
+      onTap: () {},
+      child: Container(
+          decoration: BoxDecoration(
+            color: primaryColor.withOpacity(0.3),
+            border: Border.all(
+              color: Colors.transparent,
+            ),
+            borderRadius: BorderRadius.circular(16),
+          ),
+          child: Center(
+            child: Icon(
+              Icons.multiple_stop_outlined,
+              color: primaryColor.withOpacity(0.6),
+            ),
+          )),
+    );
+  }
+
+  TextField _searchBar() {
+    return TextField(
+      decoration: InputDecoration(
+        prefixIcon: Icon(
+          Icons.search,
+          color: Colors.grey,
+        ),
+        fillColor: Colors.white,
+        filled: true,
+        border: OutlineInputBorder(
+          borderSide: BorderSide.none,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        hintText: 'Search Destination',
+        hintStyle: TextStyle(
+          color: Colors.grey,
+        ),
+      ),
     );
   }
 }
