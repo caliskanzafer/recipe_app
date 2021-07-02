@@ -14,30 +14,40 @@ class MenuBar extends StatelessWidget {
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.only(right: defaultPadding),
-            child: Container(
-                padding: EdgeInsets.all(defaultPadding / 2),
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      secondryColor,
-                      primaryColor,
-                    ],
+            child: GestureDetector(
+              onTap: () {},
+              child: Container(
+                  padding: EdgeInsets.all(defaultPadding / 2),
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        secondryColor,
+                        primaryColor,
+                      ],
+                    ),
+                    border: Border.all(
+                      color: Colors.transparent,
+                    ),
+                    borderRadius: BorderRadius.circular(8),
                   ),
-                  border: Border.all(
-                    color: Colors.transparent,
-                  ),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Center(
-                  child: Text(
-                    'Sushi',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                )),
+                  child: Center(
+                    child: Text(
+                      'Sushi',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  )),
+            ),
           );
         },
         scrollDirection: Axis.horizontal,
       ),
     );
+  }
+
+  Color changeColor(int index, int currentIndex) {
+    if (currentIndex == index) {
+      return enableFontColor;
+    } else
+      return disableFontColor;
   }
 }

@@ -38,11 +38,11 @@ class HomeView extends StatelessWidget {
                   Flexible(
                     flex: 8,
                     child: Product(size: _size),
-                  )
+                  ),
                 ],
               ),
             ),
-          )
+          ),
         ],
       ),
     );

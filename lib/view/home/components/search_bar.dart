@@ -11,7 +11,7 @@ class SearchBar extends StatelessWidget {
     return Row(
       children: [
         Expanded(
-          flex: 4,
+          flex: 5,
           child: TextField(
             decoration: InputDecoration(
               prefixIcon: Icon(
