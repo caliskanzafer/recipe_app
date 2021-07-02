@@ -25,7 +25,7 @@ class Product extends StatelessWidget {
                     border: Border.all(
                       color: Colors.transparent,
                     ),
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(24),
                     color: Colors.blue),
               ),
               Positioned(
@@ -37,7 +37,7 @@ class Product extends StatelessWidget {
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.transparent),
                     borderRadius: BorderRadius.circular(16),
-                    color: Colors.red,
+                    color: Colors.brown,
                   ),
                   child: Icon(
                     Icons.bookmark,

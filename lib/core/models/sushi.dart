@@ -86,3 +86,5 @@ List demoSushis = [
     cookingTime: '40 Min',
   ),
 ];
+
+get getSushiList => demoSushis;

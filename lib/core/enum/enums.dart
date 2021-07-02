@@ -4,3 +4,9 @@ enum BottomNavigationBarEnum {
   CART,
   PROFILE,
 }
+
+enum MenuEnum {
+  ALL,
+  SUSHI,
+  BURGER,
+}

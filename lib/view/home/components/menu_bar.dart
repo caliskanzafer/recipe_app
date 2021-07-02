@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:recipe_app/constants.dart';
+import 'package:recipe_app/core/state/menu_state.dart';
 
 class MenuBar extends StatelessWidget {
   const MenuBar({
@@ -8,46 +10,67 @@ class MenuBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: ListView.builder(
-        itemCount: 5,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.only(right: defaultPadding),
-            child: GestureDetector(
-              onTap: () {},
-              child: Container(
-                  padding: EdgeInsets.all(defaultPadding / 2),
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        secondryColor,
-                        primaryColor,
-                      ],
-                    ),
-                    border: Border.all(
-                      color: Colors.transparent,
-                    ),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Center(
-                    child: Text(
-                      'Sushi',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  )),
-            ),
-          );
-        },
-        scrollDirection: Axis.horizontal,
-      ),
+    List _categories = ['All', 'Sushi', 'Burger'];
+    int _currentIndex = Provider.of<MenuState>(context).currentIndex;
+    return Consumer<MenuState>(
+      builder: (context, state, widget) {
+        return Container(
+          child: ListView.builder(
+            itemCount: 3,
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: const EdgeInsets.only(right: defaultPadding),
+                child: GestureDetector(
+                  onTap: () {
+                    state.changeIndex(index);
+                  },
+                  child: menuCard(index, _currentIndex, _categories),
+                ),
+              );
+            },
+            scrollDirection: Axis.horizontal,
+          ),
+        );
+      },
     );
   }
 
-  Color changeColor(int index, int currentIndex) {
-    if (currentIndex == index) {
-      return enableFontColor;
-    } else
-      return disableFontColor;
+  Container menuCard(int index, int _currentIndex, List<dynamic> _categories) {
+    return Container(
+      padding: EdgeInsets.fromLTRB(defaultPadding * 1.2, defaultPadding / 2,
+          defaultPadding * 1.2, defaultPadding / 2),
+      decoration: BoxDecoration(
+        gradient: (index == _currentIndex)
+            ? LinearGradient(
+                colors: [
+                  secondryColor,
+                  primaryColor,
+                ],
+              )
+            : LinearGradient(
+                colors: [
+                  Colors.white,
+                  Colors.white,
+                ],
+              ),
+        border: Border.all(
+          color: Colors.transparent,
+        ),
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: menuText(_categories, index, _currentIndex),
+    );
+  }
+
+  Center menuText(List<dynamic> _categories, int index, int _currentIndex) {
+    return Center(
+      child: Text(
+        _categories[index],
+        style: TextStyle(
+          color: index == _currentIndex ? Colors.white : disableFontColor,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    );
   }
 }

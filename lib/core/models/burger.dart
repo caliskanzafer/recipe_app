@@ -97,3 +97,5 @@ List demoBurgers = [
     cookingTime: '40 Min',
   ),
 ];
+
+get getBurgerList => demoBurgers;
