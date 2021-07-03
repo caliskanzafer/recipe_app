@@ -5,6 +5,7 @@ import 'package:recipe_app/core/models/all_menu.dart';
 import 'package:recipe_app/core/models/burger.dart';
 import 'package:recipe_app/core/models/sushi.dart';
 import 'package:recipe_app/core/state/menu_state.dart';
+import 'package:recipe_app/view/detail/detail_view.dart';
 
 class Product extends StatefulWidget {
   @override
@@ -24,13 +25,19 @@ class _ProductState extends State<Product> {
           itemBuilder: (context, index) {
             return Padding(
               padding: const EdgeInsets.only(top: defaultPadding),
-              child: Stack(
-                children: [
-                  _background(context, _currentIndex, index),
-                  _bookmark(),
-                  _productName(_currentIndex, index),
-                  _description(_currentIndex, index),
-                ],
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => DetailView()));
+                },
+                child: Stack(
+                  children: [
+                    _background(context, _currentIndex, index),
+                    _bookmark(),
+                    _productName(_currentIndex, index),
+                    _description(_currentIndex, index),
+                  ],
+                ),
               ),
             );
           },
